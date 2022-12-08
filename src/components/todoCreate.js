@@ -9,6 +9,7 @@ function TodoCreate({ onCreate }) {
   const handleSubmit = (event) => {
     event.preventDefault();
     onCreate(todoTitle);
+    setTodoTitle("");
   };
 
   return (

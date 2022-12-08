@@ -14,11 +14,27 @@ function App() {
     setTodo(createTodo);
   };
 
+  // const updateTodo = (newTodo, id) => {
+  //   const editTodo = todos.filter((todo, index) => {
+  //     if (todo.id === id) {
+  //       return [{ ...todo, title: newTodo }];
+  //     }
+  //     return todo;
+  //   });
+  //   setTodo(editTodo);
+  // };
+
+  const deleteTodoById = (id) => {
+    const upDatedTodo = todos.filter((todo) => {
+      return todo.id !== id;
+    });
+    setTodo(upDatedTodo);
+  };
   return (
     <div>
       <div className="create-container">
         <TodoCreate onCreate={addTodo} />
-        <TodoList allTodo={todos} />
+        <TodoList allTodo={todos} onDelete={deleteTodoById} />
       </div>
     </div>
   );
