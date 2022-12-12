@@ -2,7 +2,7 @@ import React from "react";
 import TodoShow from "./todoShow";
 import "./todoList.css";
 
-function TodoList({ allTodo, onDelete }) {
+function TodoList({ allTodo, onDelete, onUpdate }) {
   const renderedTodo = allTodo.map((todo) => {
     return (
       <TodoShow
@@ -10,6 +10,7 @@ function TodoList({ allTodo, onDelete }) {
         key={todo.id}
         todo={todo}
         onDelete={onDelete}
+        onUpdate={onUpdate}
       />
     );
   });

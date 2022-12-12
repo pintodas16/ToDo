@@ -24,6 +24,17 @@ function App() {
   //   setTodo(editTodo);
   // };
 
+  const editTodoById = (newTodoTitle, id) => {
+    const updateTodo = todos.map((todo, index) => {
+      console.log(todo.title);
+      if (todo.id === id) {
+        return { ...todo, title: newTodoTitle };
+      }
+      return todo;
+    });
+    setTodo(updateTodo);
+  };
+
   const deleteTodoById = (id) => {
     const upDatedTodo = todos.filter((todo) => {
       return todo.id !== id;
@@ -34,7 +45,11 @@ function App() {
     <div>
       <div className="create-container">
         <TodoCreate onCreate={addTodo} />
-        <TodoList allTodo={todos} onDelete={deleteTodoById} />
+        <TodoList
+          allTodo={todos}
+          onDelete={deleteTodoById}
+          onUpdate={editTodoById}
+        />
       </div>
     </div>
   );

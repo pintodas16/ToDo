@@ -27,3 +27,14 @@
 }
 .del-btn {
 }
+
+/* todoEdit css  */
+.todoEditForm {
+}
+.todoEditInput {
+  text-align: center;
+  font-size: 1.5rem;
+  outline: none;
+  border: none;
+  color: aquamarine;
+}
