@@ -1,20 +1,21 @@
 import React from "react";
 import "./todoshow.css";
 import TodoEdit from "./todoEdit";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import TodoContext from "../context/todoContext";
 
-function TodoShow({ todo, onDelete, onUpdate }) {
+function TodoShow({ todo }) {
+  const { deleteTodoById } = useContext(TodoContext);
   const [editShow, setEditShow] = useState(false);
 
   const handleDelete = () => {
-    console.log(todo.id);
-    onDelete(todo.id);
+    // console.log(todo.id);
+    deleteTodoById(todo.id);
   };
   const handleEdit = () => {
     setEditShow(!editShow);
   };
-  const handleSubmit = (newTodoTitle, id) => {
-    onUpdate(newTodoTitle, id);
+  const handleSubmit = () => {
     setEditShow(false);
   };
   let content = todo.title;
