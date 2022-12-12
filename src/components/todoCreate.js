@@ -8,10 +8,13 @@ function TodoCreate({ onCreate }) {
   const handleChange = (event) => {
     setTodoTitle(event.target.value);
   };
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    createTodo(todoTitle);
-    setTodoTitle("");
+    if (todoTitle.trim().length !== 0) {
+      createTodo(todoTitle);
+      setTodoTitle("");
+    }
   };
 
   return (
